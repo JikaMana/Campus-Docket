@@ -4,13 +4,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDcBVIAy8Xe8lVSaOmUof7I5nBm73SVBX4",
-  authDomain: "campus-docket.firebaseapp.com",
-  projectId: "campus-docket",
-  storageBucket: "campus-docket.firebasestorage.app",
-  messagingSenderId: "473029701448",
-  appId: "1:473029701448:web:c05a43dfdeab076f530d7d",
-  measurementId: "G-56EBPV282H",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const requiredConfig = [
