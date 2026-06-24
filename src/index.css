@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Campus Docket palette */
+  --color-terracotta-600: var(--terracotta-600);
+  --color-terracotta-400: var(--terracotta-400);
+  --color-ink-950: var(--ink-950);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-paper-50: var(--paper-50);
+  --color-olive-600: var(--olive-600);
+  --color-ochre-500: var(--ochre-500);
+  --color-rust-700: var(--rust-700);
+  --color-text-on-dark: var(--text-on-dark);
+  --color-text-muted: var(--text-muted);
+
+  --font-display: 'Bitter', Georgia, serif;
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Campus Docket palette */
+  --terracotta-600: oklch(0.56 0.13 38);
+  --terracotta-400: oklch(0.65 0.14 38);
+  --ink-950: oklch(0.14 0.01 60);
+  --ink-800: oklch(0.19 0.01 60);
+  --ink-700: oklch(0.24 0.01 60);
+  --paper-50: oklch(0.97 0.01 80);
+  --olive-600: oklch(0.47 0.08 140);
+  --ochre-500: oklch(0.64 0.12 80);
+  --rust-700: oklch(0.44 0.13 30);
+  --text-on-dark: oklch(0.95 0.01 80);
+  --text-muted: oklch(0.63 0.02 60);
+
+  /* Semantic tokens */
+  --background: var(--ink-950);
+  --foreground: var(--text-on-dark);
+  --card: var(--ink-800);
+  --card-foreground: var(--text-on-dark);
+  --popover: var(--ink-800);
+  --popover-foreground: var(--text-on-dark);
+  --primary: var(--terracotta-600);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: var(--ink-700);
+  --secondary-foreground: var(--text-on-dark);
+  --muted: var(--ink-700);
+  --muted-foreground: var(--text-muted);
+  --accent: var(--terracotta-400);
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: var(--rust-700);
+  --border: oklch(0.28 0.01 60);
+  --input: oklch(0.22 0.01 60);
+  --ring: var(--terracotta-600);
+
+  --sidebar: var(--ink-800);
+  --sidebar-foreground: var(--text-on-dark);
+  --sidebar-primary: var(--terracotta-600);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: var(--ink-700);
+  --sidebar-accent-foreground: var(--text-on-dark);
+  --sidebar-border: oklch(0.28 0.01 60);
+  --sidebar-ring: var(--terracotta-600);
+}
+
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Bitter', Georgia, serif;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+/* Stamp badge animation */
+@keyframes stamp-press {
+  0% { transform: scale(1.4) rotate(-6deg); opacity: 0; }
+  60% { transform: scale(0.94) rotate(-2deg); opacity: 1; }
+  80% { transform: scale(1.03) rotate(-1deg); }
+  100% { transform: scale(1) rotate(-2deg); opacity: 1; }
+}
+
+.stamp-animate {
+  animation: stamp-press 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Mono reference codes */
+.ref-code {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  letter-spacing: 0.06em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--ink-800); }
+::-webkit-scrollbar-thumb { background: oklch(0.35 0.02 60); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--terracotta-600); }
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--terracotta-600);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
